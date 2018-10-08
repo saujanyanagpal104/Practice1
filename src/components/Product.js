@@ -4,17 +4,21 @@ class Product extends React.Component {
     nameRef = React.createRef()
     priceRef = React.createRef()
     descRef = React.createRef()
-    handleClick = () => {
+    handleClick = (e) => {
+        console.log(this.props.details.condition.cond)
         const value = {
             name: this.nameRef.current.innerText,
             price: this.priceRef.current.innerText,
-            desc: this.descRef.current.innerText
+            desc: this.descRef.current.innerText,
+            condition: this.props.details.condition.cond,
+            color: this.props.details.condition.color
         }
-        console.log(value)
         this.props.addItem(value)
     }
-    mouseOver = () => {
-        this.props.onHover()
+    mouseOver = (e) => {
+        const index = e.currentTarget.getAttribute('data-tag')
+        console.log(index)
+        this.props.onHover(index)
     }
     mouseLeave = () => {
         this.props.outHover()
@@ -35,7 +39,7 @@ class Product extends React.Component {
         const price = this.props.details.price;
         const desc = this.props.details.desc;
         return (
-            <div onMouseOver={this.mouseOver} onMouseLeave={this.mouseLeave} className="product">
+            <div onMouseOver={this.mouseOver} onMouseLeave={this.mouseLeave} data-tag={this.props.index} className="product">
                 {this.renderButton()}
                 <div className="image">
                     <img src={image} alt={name} />

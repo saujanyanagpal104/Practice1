@@ -21,6 +21,10 @@ class Table extends React.Component{
                                 <th>Desc</th>
                                 {Object.values(this.props.selectedItem).map((item,key) => <td key={key} index={key}>{item.desc}</td>)}
                             </tr>
+                            <tr id="condition">
+                                <th>Condition</th>
+                                {Object.values(this.props.selectedItem).map((item,key) => <td  style={{ 'backgroundColor': item.color, color: 'white'}} key={key} index={key}>{item.condition}</td>)}
+                            </tr>
                         </tbody>
                     </table>
                 </div>
