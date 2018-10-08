@@ -12,7 +12,6 @@ class Product extends React.Component {
         }
         console.log(value)
         this.props.addItem(value)
-        this.props.itemClicked()
     }
     mouseOver = () => {
         this.props.onHover()

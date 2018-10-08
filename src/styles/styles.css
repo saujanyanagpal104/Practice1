@@ -167,7 +167,7 @@ thead th {
     opacity: 1;
     z-index: 1;
     top: 130px;
-    animation: buttonAnim 500ms ease-out;
+    animation: buttonAnim 300ms ease-out;
 }
 #button:hover {
     color: rgb(72, 207, 173);
