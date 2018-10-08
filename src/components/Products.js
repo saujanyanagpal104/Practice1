@@ -3,13 +3,6 @@ import React from 'react';
 import Product from './Product';
 
 class Products extends React.Component {
-    nameRef = React.createRef()
-
-    handleClick = (e) => {
-        const itemIndex = e.target.currentTarget;
-        this.props.addItem(itemIndex)
-    }
-
     render() {
         return (
             <div className="products-container">
