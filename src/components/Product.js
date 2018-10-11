@@ -15,13 +15,15 @@ class Product extends React.Component {
         this.props.itemClicked(value)
     }
     mouseOver = (e) => {
-        this.props.onHover()
+        const target = e.currentTarget.getAttribute('data-tag')
+        console.log(target)
+        this.props.onHover(target)
     }
     mouseLeave = () => {
         this.props.outHover()
     }
-    renderButton = () => {
-        if(this.props.hover) {
+    renderButton = (props) => {
+        if( this.props.hover === this.props.index ) {
             return (
                 <div className="overlay">
                     <button onClick={this.handleClick} id="button">Compare</button>
@@ -37,7 +39,7 @@ class Product extends React.Component {
         const { index } = this.props;
         return (
             <div onMouseOver={this.mouseOver} onMouseLeave={this.mouseLeave} data-tag={index} className="product">
-                {this.renderButton()}
+                {this.renderButton(index)}
                 <div className="image">
                     <img src={image} alt={name} />
                 </div>

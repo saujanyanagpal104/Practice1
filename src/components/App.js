@@ -7,7 +7,7 @@ import Table from './Table';
 
 class App extends React.Component {
     state={
-        hover: false,
+        hover: "",
         products: [],
         clicked: []
     }
@@ -17,14 +17,14 @@ class App extends React.Component {
             products: data
         })
     }
-    onHover = () => {
+    onHover = (target) => {
         this.setState({
-            hover: true
+            hover: target
     })
     }
     outHover = () => {
         this.setState({
-            hover: false
+            hover: ""
         })
     }
     itemClicked = (value) => {
