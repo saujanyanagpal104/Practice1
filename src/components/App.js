@@ -9,7 +9,8 @@ class App extends React.Component {
     state={
         hover: "",
         products: [],
-        clicked: []
+        selectedItem: [],
+        clicked: false
     }
 
     componentDidMount = () => {
@@ -27,19 +28,24 @@ class App extends React.Component {
             hover: ""
         })
     }
-    itemClicked = (value) => {
+    itemSelected = (value) => {
         this.setState({
-            clicked: [...this.state.clicked, value ]
+            selectedItem: [...this.state.selectedItem, value ]
     })
+    }
+    itemClicked = () => {
+        this.setState({
+            clicked: true
+        })
     }
 
     render() {
         return(
             <div>
             <div className="content-container">
-                <Products products={this.state.products} clicked={this.state.clicked} hover={this.state.hover} onHover={this.onHover} outHover={this.outHover} itemClicked={this.itemClicked} />
+                <Products products={this.state.products} selectedItem={this.state.selectedItem} itemSelected={this.itemSelected} hover={this.state.hover} clicked={this.state.clicked} onHover={this.onHover} outHover={this.outHover} itemClicked={this.itemClicked} />
             </div>
-                <Table clicked={this.state.clicked} products={this.state.products} />
+                <Table selectedItem={this.state.selectedItem} products={this.state.products} />
             </div>
         )
     }

@@ -12,24 +12,24 @@ class Product extends React.Component {
             condition: this.props.details.condition.cond,
             color: this.props.details.condition.color,
         }
-        this.props.itemClicked(value)
+        this.props.itemSelected(value)
+        this.props.itemClicked()
     }
     mouseOver = (e) => {
         const target = e.currentTarget.getAttribute('data-tag')
-        console.log(target)
         this.props.onHover(target)
     }
     mouseLeave = () => {
         this.props.outHover()
     }
-    renderButton = (props) => {
-        if( this.props.hover === this.props.index ) {
-            return (
+    renderButton = () => {
+            if( this.props.hover === this.props.index ) {
+                return(
                 <div className="overlay">
                     <button onClick={this.handleClick} id="button">Compare</button>
                 </div>
-            )
-        }
+                )
+            }
     }
     render() {
         const image = this.props.details.image;
